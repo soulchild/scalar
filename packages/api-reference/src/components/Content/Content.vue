@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { type Server, useServerStore } from '@scalar/api-client'
 import type { Spec } from '@scalar/oas-utils'
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
 
+import { BaseUrl, type Server } from '../../features/BaseUrl'
 import { getModels, hasModels } from '../../helpers'
 import { useNavState, useSidebar } from '../../hooks'
 import { Authentication } from './Authentication'
-import { BaseUrl } from './BaseUrl'
 import { ClientLibraries } from './ClientLibraries'
 import { Introduction } from './Introduction'
 import { Lazy, Loading } from './Lazy'
@@ -19,67 +18,21 @@ const props = defineProps<{
   parsedSpec: Spec
   layout?: 'default' | 'accordion'
   baseServerURL?: string
-  proxy?: string
   servers?: Server[]
+  proxy?: string
 }>()
 
 const { getOperationId, getTagId, hash } = useNavState()
-const { setServer } = useServerStore()
 const { hideModels, collapsedSidebarItems } = useSidebar()
 
-const prependRelativePath = (server: Server) => {
-  // URLs that don't start with http[s]:// or a variable
-  if (server.url.match(/^(?!(https?|file):\/\/|{).+/)) {
-    let baseURL = props.baseServerURL ?? window.location.origin
-
-    // Handle slashes
-    baseURL = baseURL.replace(/\/$/, '')
-    const url = server.url.startsWith('/') ? server.url : `/${server.url}`
-    server.url = `${baseURL}${url}`.replace(/\/$/, '')
-  }
-  return server
-}
-
-// Watch the spec and set the servers
-watch(
-  () => props.parsedSpec,
-  (parsedSpec) => {
-    let servers = [
-      { url: typeof window !== 'undefined' ? window.location.origin : '/' },
-    ]
-
-    if (props.servers) {
-      servers = props.servers
-    } else if (parsedSpec.servers && parsedSpec.servers.length > 0) {
-      servers = parsedSpec.servers
-    } else if (props.parsedSpec.host) {
-      // Use the first scheme if available, otherwise default to http
-      const scheme = props.parsedSpec.schemes?.[0] ?? 'http'
-
-      servers = [
-        {
-          url: `${scheme}://${props.parsedSpec.host}${
-            props.parsedSpec?.basePath ?? ''
-          }`,
-        },
-      ]
-    }
-
-    // Pre-pend relative paths (if we can)
-    if (props.baseServerURL || typeof window !== 'undefined') {
-      servers = servers.map(prependRelativePath)
-    }
-
-    setServer({ servers })
-  },
-  { deep: true, immediate: true },
-)
 const tagLayout = computed<typeof Tag>(() =>
   props.layout === 'accordion' ? TagAccordion : Tag,
 )
+
 const endpointLayout = computed<typeof Operation>(() =>
   props.layout === 'accordion' ? OperationAccordion : Operation,
 )
+
 const introCardsSlot = computed(() =>
   props.layout === 'accordion' ? 'after' : 'aside',
 )
@@ -113,7 +66,10 @@ const isLazy = props.layout !== 'accordion' && !hash.value.startsWith('model')
         <div
           class="introduction-card"
           :class="{ 'introduction-card-row': layout === 'accordion' }">
-          <BaseUrl />
+          <BaseUrl
+            :defaultServerUrl="baseServerURL"
+            :servers="props.servers"
+            :specification="parsedSpec" />
           <Authentication
             :parsedSpec="parsedSpec"
             :proxy="proxy" />
@@ -185,6 +141,9 @@ const isLazy = props.layout !== 'accordion' && !hash.value.startsWith('model')
   background: var(--scalar-background-1);
   border: 1px solid var(--scalar-border-color);
   border-radius: var(--scalar-radius-lg);
+}
+.introduction-card :deep(.description) {
+  padding: 0;
 }
 .introduction-card-title {
   font-weight: var(--scalar-semibold);

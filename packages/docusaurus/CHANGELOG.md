@@ -1,5 +1,105 @@
 # @scalar/docusaurus
 
+## 0.4.31
+
+### Patch Changes
+
+- @scalar/api-reference-react@0.3.29
+
+## 0.4.30
+
+### Patch Changes
+
+- @scalar/api-reference-react@0.3.28
+
+## 0.4.29
+
+### Patch Changes
+
+- @scalar/api-reference-react@0.3.27
+
+## 0.4.28
+
+### Patch Changes
+
+- @scalar/api-reference-react@0.3.26
+
+## 0.4.27
+
+### Patch Changes
+
+- @scalar/api-reference-react@0.3.25
+
+## 0.4.26
+
+### Patch Changes
+
+- @scalar/api-reference-react@0.3.24
+
+## 0.4.25
+
+### Patch Changes
+
+- @scalar/api-reference-react@0.3.23
+
+## 0.4.24
+
+### Patch Changes
+
+- @scalar/api-reference-react@0.3.22
+
+## 0.4.23
+
+### Patch Changes
+
+- @scalar/api-reference-react@0.3.21
+
+## 0.4.22
+
+### Patch Changes
+
+- @scalar/api-reference-react@0.3.20
+
+## 0.4.21
+
+### Patch Changes
+
+- @scalar/api-reference-react@0.3.19
+
+## 0.4.20
+
+### Patch Changes
+
+- 94e68ab: chore: upgrade typescript to 5.5
+- Updated dependencies [94e68ab]
+  - @scalar/api-reference-react@0.3.18
+
+## 0.4.19
+
+### Patch Changes
+
+- @scalar/api-reference-react@0.3.17
+
+## 0.4.18
+
+### Patch Changes
+
+- @scalar/api-reference-react@0.3.16
+
+## 0.4.17
+
+### Patch Changes
+
+- @scalar/api-reference-react@0.3.15
+
+## 0.4.16
+
+### Patch Changes
+
+- 5812c2f: feat: allow custom headers
+- b11d4a9: feat: add support for relative URLs
+  - @scalar/api-reference-react@0.3.14
+
 ## 0.4.15
 
 ### Patch Changes

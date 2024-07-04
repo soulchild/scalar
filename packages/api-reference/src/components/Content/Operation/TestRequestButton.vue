@@ -1,38 +1,29 @@
 <script setup lang="ts">
-import { HttpMethod } from '@scalar/api-client'
 import { ScalarIcon } from '@scalar/components'
 import type { TransformedOperation } from '@scalar/oas-utils'
-import { inject } from 'vue'
 
-import { NEW_API_MODAL } from '../../../features'
-import { GLOBAL_SECURITY_SYMBOL, openClientFor } from '../../../helpers'
 import { apiClientBus } from '../../api-client-bus'
 
 defineProps<{
   operation: TransformedOperation
 }>()
-
-const getGlobalSecurity = inject(GLOBAL_SECURITY_SYMBOL)
 </script>
 <template>
-  <HttpMethod
-    as="button"
+  <button
     class="show-api-client-button"
     :method="operation.httpVerb"
     type="button"
     @click.stop="
-      NEW_API_MODAL
-        ? // @scalar/api-client@2.0
-          apiClientBus.emit({
-            path: operation.path,
-            method: operation.httpVerb,
-          })
-        : // @scalar/api-client@1.x
-          openClientFor(operation, getGlobalSecurity?.())
+      apiClientBus.emit({
+        open: {
+          path: operation.path,
+          method: operation.httpVerb,
+        },
+      })
     ">
     <ScalarIcon icon="PaperAirplane" />
     <span>Test Request</span>
-  </HttpMethod>
+  </button>
 </template>
 <style scoped>
 .show-api-client-button {

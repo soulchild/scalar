@@ -1,5 +1,128 @@
 # @scalar/api-client-react
 
+## 0.5.25
+
+### Patch Changes
+
+- Updated dependencies [ba3f5cb]
+- Updated dependencies [0b6e3aa]
+- Updated dependencies [d58841b]
+  - @scalar/api-client@2.0.8
+
+## 0.5.24
+
+### Patch Changes
+
+- Updated dependencies [f2e3b0e]
+  - @scalar/api-client@2.0.7
+
+## 0.5.23
+
+### Patch Changes
+
+- Updated dependencies [4385ae2]
+- Updated dependencies [632d6f7]
+- Updated dependencies [a5aedf5]
+- Updated dependencies [a5aedf5]
+- Updated dependencies [d6a2a4d]
+- Updated dependencies [cd5d1a4]
+  - @scalar/api-client@2.0.6
+
+## 0.5.22
+
+### Patch Changes
+
+- Updated dependencies [6709507]
+- Updated dependencies [8f06fcd]
+- Updated dependencies [8f06fcd]
+- Updated dependencies [cdfb8c5]
+  - @scalar/api-client@2.0.5
+
+## 0.5.21
+
+### Patch Changes
+
+- @scalar/api-client@2.0.4
+
+## 0.5.20
+
+### Patch Changes
+
+- Updated dependencies [9f208d5]
+  - @scalar/api-client@2.0.3
+
+## 0.5.19
+
+### Patch Changes
+
+- Updated dependencies [209a7e1]
+- Updated dependencies [429e928]
+- Updated dependencies [3ba80b9]
+  - @scalar/api-client@2.0.2
+
+## 0.5.18
+
+### Patch Changes
+
+- Updated dependencies [ec52346]
+- Updated dependencies [ded1303]
+- Updated dependencies [6aae9fe]
+  - @scalar/api-client@2.0.1
+
+## 0.5.17
+
+### Patch Changes
+
+- Updated dependencies [bd67d8f]
+  - @scalar/api-client@2.0.0
+
+## 0.5.16
+
+### Patch Changes
+
+- @scalar/api-client@1.3.21
+
+## 0.5.15
+
+### Patch Changes
+
+- Updated dependencies [cefe804]
+  - @scalar/api-client@1.3.20
+
+## 0.5.14
+
+### Patch Changes
+
+- 94e68ab: chore: upgrade typescript to 5.5
+- Updated dependencies [326bd3d]
+- Updated dependencies [94e68ab]
+  - @scalar/api-client@1.3.19
+
+## 0.5.13
+
+### Patch Changes
+
+- Updated dependencies [06471ed]
+  - @scalar/api-client@1.3.18
+
+## 0.5.12
+
+### Patch Changes
+
+- @scalar/api-client@1.3.17
+
+## 0.5.11
+
+### Patch Changes
+
+- @scalar/api-client@1.3.16
+
+## 0.5.10
+
+### Patch Changes
+
+- @scalar/api-client@1.3.15
+
 ## 0.5.9
 
 ### Patch Changes

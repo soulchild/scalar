@@ -1,5 +1,41 @@
 # @scalar/themes
 
+## 0.9.11
+
+### Patch Changes
+
+- 4250fe2: fix: build tailwind preset with vite before exporting
+
+## 0.9.10
+
+### Patch Changes
+
+- cdfb8c5: feat: focus visible outline style
+
+## 0.9.9
+
+### Patch Changes
+
+- 3b83b82: fix: empty html response show theme background
+
+## 0.9.8
+
+### Patch Changes
+
+- 94e68ab: chore: upgrade typescript to 5.5
+
+## 0.9.7
+
+### Patch Changes
+
+- 3b53db5: style(client-app): new authentication UI
+
+## 0.9.6
+
+### Patch Changes
+
+- e88a2c2: refactor(themes): internalize tailwind pixel preset
+
 ## 0.9.5
 
 ### Patch Changes

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HttpMethod } from '@scalar/api-client'
+import { HttpMethod } from '../HttpMethod'
 
 defineProps<{
   active?: boolean
@@ -29,7 +29,7 @@ defineProps<{
   );
   text-transform: uppercase;
   font-size: 10px;
-  font-weight: bold;
+  font-weight: var(--scalar-bold);
   text-align: right;
   position: relative;
   font-family: var(--scalar-font-code);

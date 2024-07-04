@@ -19,7 +19,6 @@
   },
   "type": "module",
   "dependencies": {
-    "@scalar/api-client": "workspace:*",
     "@scalar/api-reference": "workspace:*",
     "@scalar/galaxy": "workspace:*",
     "@scalar/themes": "workspace:*",
@@ -35,7 +34,6 @@
     "eslint-plugin-vue": "^9.21.1",
     "postcss": "^8.4.38",
     "postcss-nested": "^6.0.1",
-    "typescript": "^5.4.3",
     "vite": "^5.2.10",
     "vue-tsc": "^2.0.13"
   }

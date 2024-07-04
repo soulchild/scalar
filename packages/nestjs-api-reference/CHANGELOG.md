@@ -1,5 +1,126 @@
 # @scalar/nestjs-api-reference
 
+## 0.3.92
+
+### Patch Changes
+
+- Updated dependencies [7662097]
+- Updated dependencies [f8982ed]
+  - @scalar/api-reference@1.24.31
+
+## 0.3.91
+
+### Patch Changes
+
+- Updated dependencies [b4d6d4a]
+  - @scalar/api-reference@1.24.30
+
+## 0.3.90
+
+### Patch Changes
+
+- Updated dependencies [ebf1ee9]
+- Updated dependencies [613def2]
+  - @scalar/api-reference@1.24.29
+
+## 0.3.89
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.28
+
+## 0.3.88
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.27
+
+## 0.3.87
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.26
+
+## 0.3.86
+
+### Patch Changes
+
+- Updated dependencies [429e928]
+  - @scalar/api-reference@1.24.25
+
+## 0.3.85
+
+### Patch Changes
+
+- Updated dependencies [bbbabe6]
+  - @scalar/api-reference@1.24.24
+
+## 0.3.84
+
+### Patch Changes
+
+- Updated dependencies [b87617c]
+- Updated dependencies [975e555]
+- Updated dependencies [646dab2]
+- Updated dependencies [7f4d22e]
+- Updated dependencies [a32f137]
+  - @scalar/api-reference@1.24.23
+
+## 0.3.83
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.22
+
+## 0.3.82
+
+### Patch Changes
+
+- Updated dependencies [cefe804]
+- Updated dependencies [4861362]
+- Updated dependencies [cefe804]
+- Updated dependencies [4126c40]
+  - @scalar/api-reference@1.24.21
+
+## 0.3.81
+
+### Patch Changes
+
+- 94e68ab: chore: upgrade typescript to 5.5
+- Updated dependencies [94e68ab]
+  - @scalar/api-reference@1.24.20
+
+## 0.3.80
+
+### Patch Changes
+
+- Updated dependencies [b981770]
+- Updated dependencies [89afbcf]
+- Updated dependencies [06471ed]
+- Updated dependencies [06471ed]
+  - @scalar/api-reference@1.24.19
+
+## 0.3.79
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.18
+
+## 0.3.78
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.17
+
+## 0.3.77
+
+### Patch Changes
+
+- Updated dependencies [716811f]
+- Updated dependencies [5812c2f]
+- Updated dependencies [ee5fdee]
+  - @scalar/api-reference@1.24.16
+
 ## 0.3.76
 
 ### Patch Changes

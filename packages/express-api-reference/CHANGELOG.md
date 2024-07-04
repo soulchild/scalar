@@ -1,5 +1,127 @@
 # @scalar/express-api-reference
 
+## 0.4.92
+
+### Patch Changes
+
+- Updated dependencies [7662097]
+- Updated dependencies [f8982ed]
+  - @scalar/api-reference@1.24.31
+
+## 0.4.91
+
+### Patch Changes
+
+- Updated dependencies [b4d6d4a]
+  - @scalar/api-reference@1.24.30
+
+## 0.4.90
+
+### Patch Changes
+
+- Updated dependencies [ebf1ee9]
+- Updated dependencies [613def2]
+  - @scalar/api-reference@1.24.29
+
+## 0.4.89
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.28
+
+## 0.4.88
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.27
+
+## 0.4.87
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.26
+
+## 0.4.86
+
+### Patch Changes
+
+- Updated dependencies [429e928]
+  - @scalar/api-reference@1.24.25
+
+## 0.4.85
+
+### Patch Changes
+
+- Updated dependencies [bbbabe6]
+  - @scalar/api-reference@1.24.24
+
+## 0.4.84
+
+### Patch Changes
+
+- Updated dependencies [b87617c]
+- Updated dependencies [975e555]
+- Updated dependencies [646dab2]
+- Updated dependencies [7f4d22e]
+- Updated dependencies [a32f137]
+  - @scalar/api-reference@1.24.23
+
+## 0.4.83
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.22
+
+## 0.4.82
+
+### Patch Changes
+
+- Updated dependencies [cefe804]
+- Updated dependencies [4861362]
+- Updated dependencies [cefe804]
+- Updated dependencies [4126c40]
+  - @scalar/api-reference@1.24.21
+
+## 0.4.81
+
+### Patch Changes
+
+- 94e68ab: chore: upgrade typescript to 5.5
+- Updated dependencies [94e68ab]
+  - @scalar/api-reference@1.24.20
+
+## 0.4.80
+
+### Patch Changes
+
+- Updated dependencies [b981770]
+- Updated dependencies [89afbcf]
+- Updated dependencies [06471ed]
+- Updated dependencies [06471ed]
+  - @scalar/api-reference@1.24.19
+
+## 0.4.79
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.18
+
+## 0.4.78
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.17
+
+## 0.4.77
+
+### Patch Changes
+
+- 1267f1c: feat: add content-type text/html to the HTML response
+- Updated dependencies [716811f]
+- Updated dependencies [5812c2f]
+- Updated dependencies [ee5fdee]
+  - @scalar/api-reference@1.24.16
+
 ## 0.4.76
 
 ### Patch Changes

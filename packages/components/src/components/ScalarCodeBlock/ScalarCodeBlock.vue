@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { standardLanguages, syntaxHighlight } from '@scalar/code-highlight'
-import '@scalar/code-highlight/css/code.css'
-import { prettyPrintJson } from '@scalar/oas-utils/helpers'
 import { computed } from 'vue'
+
+import { prettyPrintJson } from '../../helpers/oas-utils'
 
 /**
  * Uses highlight.js for syntax highlighting
@@ -38,6 +38,7 @@ const highlightedCode = computed(() => {
     v-html="highlightedCode"></pre>
 </template>
 <style>
+@import '@scalar/code-highlight/css/code.css';
 /* Code blocks */
 .scalar-codeblock-pre {
   margin: 0;

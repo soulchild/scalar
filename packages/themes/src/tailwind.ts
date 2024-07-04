@@ -1,5 +1,6 @@
-import pixelPreset from '@rise8/tailwind-pixel-perfect-preset'
 import type { Config } from 'tailwindcss'
+
+import pixelPreset from './pixelPreset'
 
 /** Scalar Tailwind Preset */
 export default {
@@ -42,6 +43,7 @@ export default {
     },
     fontWeight: {
       DEFAULT: 'var(--scalar-regular)',
+      normal: 'var(--scalar-regular)',
       medium: 'var(--scalar-semibold)',
       bold: 'var(--scalar-bold)',
     },
@@ -74,7 +76,7 @@ export default {
       },
 
       // Utility Colors
-      backdrop: 'rgba(0, 0, 0, 0.44)', // Overlay Backdrops
+      backdrop: 'rgba(0, 0, 0, 0.22)', // Overlay Backdrops
       border: 'var(--scalar-border-color)',
       brand: 'var(--scalar-brand)',
 

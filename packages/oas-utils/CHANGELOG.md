@@ -1,5 +1,52 @@
 # @scalar/oas-utils
 
+## 0.2.10
+
+### Patch Changes
+
+- d58841b: feat: type, format and default to request example parameters schema
+
+## 0.2.9
+
+### Patch Changes
+
+- d6a2a4d: feat: oas-utils request example parameters enum
+- 632d6f7: fix: add cookie handler and schema
+
+## 0.2.8
+
+### Patch Changes
+
+- a01df62: fix: ensure path and operation params are merged on import
+
+## 0.2.7
+
+### Patch Changes
+
+- 7f4d22e: refactor: new redirectToProxy helper
+
+## 0.2.6
+
+### Patch Changes
+
+- cefe804: feat: findVariables, replaceVariables, concatenateUrlAndPath
+- fec6f8e: feat: add a value to the server variables
+- d0aec62: fix: remove hardcoded proxy url for new client
+
+## 0.2.5
+
+### Patch Changes
+
+- a298195: feat: add timestamp in request event type
+- 326bd3d: fix: URL is not encoded when sent to the proxy
+- 94e68ab: chore: upgrade typescript to 5.5
+
+## 0.2.4
+
+### Patch Changes
+
+- c20c7d0: feat: security schemes and requirements
+
 ## 0.2.3
 
 ### Patch Changes

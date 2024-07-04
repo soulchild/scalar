@@ -9,6 +9,8 @@ import type { UseSeoMetaInput } from '@unhead/schema'
 import type { HarRequest, TargetId } from 'httpsnippet-lite'
 import type { Slot } from 'vue'
 
+import type { Server } from './features/BaseUrl'
+
 // ---------------------------------------------------------------------------
 // Types copied from package as they are not exported
 type ClientInfo = {
@@ -16,10 +18,6 @@ type ClientInfo = {
   title: string
   link: string
   description: string
-}
-export type Server = {
-  url: string
-  description?: string
 }
 
 export type TargetInfo = {
@@ -111,20 +109,13 @@ export type ReferenceConfiguration = {
   /**
    * If used, passed data will be added to the HTML header
    * @see https://unhead.unjs.io/usage/composables/use-seo-meta
-   * */
+   */
   metaData?: UseSeoMetaInput
   /**
    * List of httpsnippet clients to hide from the clients menu
    * By default hides Unirest, pass `[]` to show all clients
    */
   hiddenClients?: HiddenClients
-  /**
-   * List of servers to override the openapi spec servers
-   *
-   * @default undefined
-   * @example [{ url: 'https://api.scalar.com', description: 'Production server' }]
-   */
-  servers?: Server[]
   /** Custom CSS to be added to the page */
   customCss?: string
   /** onSpecUpdate is fired on spec/swagger content change */
@@ -151,6 +142,13 @@ export type ReferenceConfiguration = {
    * @example 'http://localhost:3000'
    */
   baseServerURL?: string
+  /**
+   * List of servers to override the openapi spec servers
+   *
+   * @default undefined
+   * @example [{ url: 'https://api.scalar.com', description: 'Production server' }]
+   */
+  servers?: Server[]
   /**
    * We’re using Inter and JetBrains Mono as the default fonts. If you want to use your own fonts, set this to false.
    *
@@ -250,7 +248,19 @@ export type ReferenceLayoutSlot =
   | 'sidebar-start'
   | 'sidebar-end'
 
+export type ReferenceLayoutSlots = {
+  [x in ReferenceLayoutSlot]: (props: ReferenceSlotProps) => any
+}
+
 export type ReferenceSlotProps = {
   spec: Spec
   breadcrumb: string
+}
+
+export type ReferenceLayoutEvents = {
+  (e: 'changeTheme', value: ThemeId): void
+  (e: 'updateContent', value: string): void
+  (e: 'loadSwaggerFile'): void
+  (e: 'linkSwaggerFile'): void
+  (e: 'toggleDarkMode'): void
 }

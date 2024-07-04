@@ -1,5 +1,126 @@
 # @scalar/api-reference-react
 
+## 0.3.29
+
+### Patch Changes
+
+- Updated dependencies [7662097]
+- Updated dependencies [f8982ed]
+  - @scalar/api-reference@1.24.31
+
+## 0.3.28
+
+### Patch Changes
+
+- Updated dependencies [b4d6d4a]
+  - @scalar/api-reference@1.24.30
+
+## 0.3.27
+
+### Patch Changes
+
+- Updated dependencies [ebf1ee9]
+- Updated dependencies [613def2]
+  - @scalar/api-reference@1.24.29
+
+## 0.3.26
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.28
+
+## 0.3.25
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.27
+
+## 0.3.24
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.26
+
+## 0.3.23
+
+### Patch Changes
+
+- Updated dependencies [429e928]
+  - @scalar/api-reference@1.24.25
+
+## 0.3.22
+
+### Patch Changes
+
+- Updated dependencies [bbbabe6]
+  - @scalar/api-reference@1.24.24
+
+## 0.3.21
+
+### Patch Changes
+
+- Updated dependencies [b87617c]
+- Updated dependencies [975e555]
+- Updated dependencies [646dab2]
+- Updated dependencies [7f4d22e]
+- Updated dependencies [a32f137]
+  - @scalar/api-reference@1.24.23
+
+## 0.3.20
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.22
+
+## 0.3.19
+
+### Patch Changes
+
+- Updated dependencies [cefe804]
+- Updated dependencies [4861362]
+- Updated dependencies [cefe804]
+- Updated dependencies [4126c40]
+  - @scalar/api-reference@1.24.21
+
+## 0.3.18
+
+### Patch Changes
+
+- 94e68ab: chore: upgrade typescript to 5.5
+- Updated dependencies [94e68ab]
+  - @scalar/api-reference@1.24.20
+
+## 0.3.17
+
+### Patch Changes
+
+- Updated dependencies [b981770]
+- Updated dependencies [89afbcf]
+- Updated dependencies [06471ed]
+- Updated dependencies [06471ed]
+  - @scalar/api-reference@1.24.19
+
+## 0.3.16
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.18
+
+## 0.3.15
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.17
+
+## 0.3.14
+
+### Patch Changes
+
+- Updated dependencies [716811f]
+- Updated dependencies [5812c2f]
+- Updated dependencies [ee5fdee]
+  - @scalar/api-reference@1.24.16
+
 ## 0.3.13
 
 ### Patch Changes

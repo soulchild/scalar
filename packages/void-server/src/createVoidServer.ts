@@ -1,107 +1,79 @@
 import { type Context, Hono } from 'hono'
-import { getCookie } from 'hono/cookie'
+import { accepts } from 'hono/accepts'
 import { cors } from 'hono/cors'
+import type { StatusCode } from 'hono/utils/http-status'
+
+import {
+  createHtmlResponse,
+  createJsonResponse,
+  createXmlResponse,
+  createZipFileResponse,
+  getRequestData,
+} from './utils'
+import { errors } from './utils/constants'
 
 /**
  * Create a mock server instance
  */
-export async function createVoidServer(options?: {
-  //
-}) {
+export async function createVoidServer() {
   const app = new Hono()
 
   // CORS headers
   app.use(cors())
 
-  // 404
-  app.all('/404', async (c: Context) => {
+  // HTTP errors
+  app.all('/:status{[4-5][0-9][0-9]}', async (c: Context) => {
     console.info(`${c.req.method} ${c.req.path}`)
 
-    c.status(404)
+    const { status: originalStatusCode } = c.req.param()
+    const status = parseInt(originalStatusCode, 10) as StatusCode
 
-    return c.text('Not Found')
+    c.status(status)
+
+    return c.text(errors?.[status] ?? 'Unknown Error')
   })
 
-  // Return zip files for all requests ending with .zip
-  app.all('/:filename{.+\\.zip$}', async (c: Context) => {
+  // Return content based on the file extension
+  app.all('/:filename{.+\\.(html|xml|json|zip)$}', async (c: Context) => {
     console.info(`${c.req.method} ${c.req.path}`)
 
-    const blob = new Blob(
-      [
-        new Uint8Array([
-          80, 75, 5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        ]).buffer,
-      ],
-      {
-        type: 'application/zip',
-      },
-    )
+    const requestData = await getRequestData(c)
 
-    c.header('Content-Type', 'application/zip')
-    return c.body(blob.toString())
+    const { filename } = c.req.param()
+
+    if (filename.endsWith('.html')) {
+      return createHtmlResponse(c, requestData)
+    } else if (filename.endsWith('.xml')) {
+      return createXmlResponse(c, requestData)
+    } else if (filename.endsWith('.zip')) {
+      return createZipFileResponse(c)
+    }
+
+    return createJsonResponse(c, requestData)
   })
 
   // All other requests just respond with a JSON containing all the request data
   app.all('/*', async (c: Context) => {
     console.info(`${c.req.method} ${c.req.path}`)
 
-    let authentication = {}
+    const requestData = await getRequestData(c)
 
-    const authorizationHeader = c.req.header('Authorization')
+    const acceptedContentType = accepts(c, {
+      header: 'Accept',
+      supports: ['text/html', 'application/xml', 'application/zip'],
+      default: 'application/json',
+    })
 
-    if (authorizationHeader) {
-      // if value starts with "Basic "
-      if (authorizationHeader.startsWith('Basic ')) {
-        const token = authorizationHeader.split(' ')[1]
-
-        authentication = {
-          authentication: {
-            type: 'http.basic',
-            token,
-            value: atob(token),
-          },
-        }
-      }
-
-      if (authorizationHeader.startsWith('Bearer ')) {
-        const token = authorizationHeader.split(' ')[1]
-
-        authentication = {
-          authentication: {
-            type: 'http.bearer',
-            token,
-          },
-        }
-      }
+    if (acceptedContentType === 'text/html') {
+      return createHtmlResponse(c, requestData)
+    } else if (acceptedContentType === 'application/xml') {
+      return createXmlResponse(c, requestData)
+    } else if (acceptedContentType === 'application/zip') {
+      return createZipFileResponse(c)
     }
 
-    const headers = Object.fromEntries(c.req.raw.headers)
-
-    const body = await getBody(c)
-
-    const cookies = getCookie(c)
-
-    return c.json({
-      headers,
-      ...authentication,
-      cookies,
-      method: c.req.method,
-      path: c.req.path,
-      query: c.req.query(),
-      body: body,
-    })
+    return createJsonResponse(c, requestData)
   })
 
   return app
-}
-
-async function getBody(c: Context) {
-  const body = await c.req.text()
-
-  // Try to parse the body as JSON
-  try {
-    return JSON.parse(body)
-  } catch {
-    return body
-  }
 }

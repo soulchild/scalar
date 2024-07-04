@@ -10,6 +10,13 @@ const requestExampleParametersSchema = z.object({
   description: z.string().optional(),
   /** Params are linked to parents such as path params and global headers/cookies */
   refUid: nanoidSchema.optional(),
+  required: z.boolean().optional(),
+  enum: z.array(z.string()).optional(),
+  type: z.string().optional(),
+  format: z.string().optional(),
+  minimum: z.number().optional(),
+  maximum: z.number().optional(),
+  default: z.any().optional(),
 })
 
 /** Request examples - formerly known as instances - are "children" of requests */

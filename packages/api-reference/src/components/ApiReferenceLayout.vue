@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { provideUseId } from '@headlessui/vue'
-import '@scalar/components/style.css'
+import { addScalarClassesToHeadless } from '@scalar/components'
 import type { SSRState } from '@scalar/oas-utils'
 import { defaultStateFactory } from '@scalar/oas-utils/helpers'
 import { type ThemeId, getThemeStyles } from '@scalar/themes'
-import { ScalarToasts } from '@scalar/use-toasts'
+import { ScalarToasts, useToasts } from '@scalar/use-toasts'
 import { useDebounceFn, useMediaQuery, useResizeObserver } from '@vueuse/core'
 import {
   computed,
-  defineAsyncComponent,
   getCurrentInstance,
   onBeforeMount,
   onMounted,
@@ -19,7 +18,6 @@ import {
   watch,
 } from 'vue'
 
-import { NEW_API_MODAL } from '../features'
 import {
   GLOBAL_SECURITY_SYMBOL,
   HIDE_DOWNLOAD_BUTTON_SYMBOL,
@@ -50,19 +48,9 @@ defineEmits<{
   (e: 'toggleDarkMode'): void
 }>()
 
-/**
- * Lazy load the old API CLient, so we don’t have to bundle it if it’s not used.
- */
-const ApiClientModalOld = defineAsyncComponent(() => {
-  return NEW_API_MODAL
-    ? // Empty component
-      new Promise((resolve) => {
-        // @ts-expect-error Needs a type
-        resolve({ render: () => null })
-      })
-    : // Load component
-      import('./ApiClientModalOld.vue')
-})
+// Configure Reference toasts to use vue-sonner
+const { initializeToasts, toast } = useToasts()
+initializeToasts((message) => toast(message))
 
 defineOptions({
   inheritAttrs: false,
@@ -79,6 +67,16 @@ const elementHeight = ref('100dvh')
 const documentEl = ref<HTMLElement | null>(null)
 useResizeObserver(documentEl, (entries) => {
   elementHeight.value = entries[0].contentRect.height + 'px'
+})
+// Find scalar Y offset to support users who have tried to add their own headers
+const yPosition = ref(0)
+onMounted(() => {
+  const pbcr = documentEl.value?.parentElement?.getBoundingClientRect()
+  const bcr = documentEl.value?.getBoundingClientRect()
+  if (pbcr && bcr) {
+    const difference = bcr.top - pbcr.top
+    yPosition.value = difference < 2 ? 0 : difference
+  }
 })
 
 const {
@@ -121,22 +119,7 @@ const scrollToSection = async (id?: string) => {
  * Ensure we add our scalar wrapper class to the headless ui root
  * mounted is too late
  */
-onBeforeMount(() => {
-  const observer = new MutationObserver((records: MutationRecord[]) => {
-    const headlessRoot = records.find((record) =>
-      Array.from(record.addedNodes).find(
-        (node) => (node as HTMLDivElement).id === 'headlessui-portal-root',
-      ),
-    )
-    if (headlessRoot) {
-      const el = headlessRoot.addedNodes[0] as HTMLDivElement
-      el.classList.add('scalar-app')
-      el.classList.add('scalar-client')
-      observer.disconnect()
-    }
-  })
-  observer.observe(document.body, { childList: true })
-})
+onBeforeMount(() => addScalarClassesToHeadless())
 
 onMounted(() => {
   // Enable the spec download event bus
@@ -185,6 +168,7 @@ onServerPrefetch(() => {
   const ctx = useSSRContext<SSRState>()
   if (!ctx) return
 
+  ctx.payload ||= { data: defaultStateFactory() }
   ctx.payload.data ||= defaultStateFactory()
 
   // Set initial hash value
@@ -248,11 +232,14 @@ hideModels.value = props.configuration.hideModels ?? false
 useDeprecationWarnings(props.configuration)
 </script>
 <template>
-  <Style>{{
-    getThemeStyles(configuration.theme, {
-      fonts: configuration.withDefaultFonts,
-    })
-  }}</Style>
+  <Style
+    v-if="props.configuration.withDefaultFonts || props.configuration.theme">
+    {{
+      getThemeStyles(configuration.theme, {
+        fonts: configuration.withDefaultFonts,
+      })
+    }}
+  </Style>
   <div
     ref="documentEl"
     class="scalar-app scalar-api-reference references-layout"
@@ -265,7 +252,9 @@ useDeprecationWarnings(props.configuration)
       },
       $attrs.class,
     ]"
-    :style="{ '--full-height': elementHeight }"
+    :style="{
+      '--scalar-y-offset': `var(--scalar-custom-header-height, ${yPosition}px)`,
+    }"
     @scroll.passive="debouncedScroll">
     <!-- Header -->
     <div class="references-header">
@@ -310,7 +299,8 @@ useDeprecationWarnings(props.configuration)
           :baseServerURL="configuration.baseServerURL"
           :layout="configuration.layout === 'classic' ? 'accordion' : 'default'"
           :parsedSpec="parsedSpec"
-          :proxy="configuration.proxy">
+          :proxy="configuration.proxy"
+          :servers="configuration.servers">
           <template #start>
             <slot
               v-bind="referenceSlotProps"
@@ -344,30 +334,15 @@ useDeprecationWarnings(props.configuration)
     <!-- REST API Client Overlay -->
     <!-- Fonts are fetched by @scalar/api-reference already, we can safely set `withDefaultFonts: false` -->
     <ApiClientModal
-      v-if="NEW_API_MODAL"
       :proxyUrl="configuration.proxy"
       :spec="configuration.spec" />
-    <!-- API Client Overlay -->
-    <!-- Fonts are fetched by @scalar/api-reference already, we can safely set `withDefaultFonts: false` -->
-    <ApiClientModalOld
-      v-else
-      :parsedSpec="parsedSpec"
-      :proxyUrl="configuration?.proxy">
-      <template #sidebar-start>
-        <slot
-          v-bind="referenceSlotProps"
-          name="sidebar-start" />
-      </template>
-      <template #sidebar-end>
-        <slot
-          v-bind="referenceSlotProps"
-          name="sidebar-end" />
-      </template>
-    </ApiClientModalOld>
   </div>
   <ScalarToasts />
 </template>
 <style>
+@import '@scalar/components/style.css';
+@import '@scalar/themes/style.css';
+
 /** Used to check if css is loaded */
 :root {
   --scalar-loaded-api-reference: true;
@@ -378,7 +353,9 @@ useDeprecationWarnings(props.configuration)
 @layer scalar-config {
   .scalar-api-reference {
     --refs-sidebar-width: var(--scalar-sidebar-width, 0px);
-    --refs-header-height: var(--scalar-header-height, 0px);
+    --refs-header-height: calc(
+      var(--scalar-y-offset) + var(--scalar-header-height, 0px)
+    );
     --refs-content-max-width: var(--scalar-content-max-width, 1540px);
   }
 
@@ -394,16 +371,10 @@ useDeprecationWarnings(props.configuration)
 /* References Layout */
 .references-layout {
   /* Try to fill the container */
-  height: 100dvh;
-  max-height: 100%;
-  width: 100dvw;
+  min-height: 100dvh;
+  min-width: 100%;
   max-width: 100%;
   flex: 1;
-
-  /* Scroll vertically */
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-gutter: stable;
 
   /*
   Calculated by a resize observer and set in the style attribute
@@ -413,7 +384,7 @@ useDeprecationWarnings(props.configuration)
 
   /* Grid layout */
   display: grid;
-  grid-template-rows: var(--refs-header-height) repeat(2, auto);
+  grid-template-rows: var(--scalar-header-height, 0px) repeat(2, auto);
   grid-template-columns: var(--refs-sidebar-width) 1fr;
   grid-template-areas:
     'header header'
@@ -426,10 +397,10 @@ useDeprecationWarnings(props.configuration)
 .references-header {
   grid-area: header;
   position: sticky;
-  top: 0;
+  top: var(--scalar-custom-header-height, 0px);
   z-index: 10;
 
-  height: var(--refs-header-height);
+  height: var(--scalar-header-height, 0px);
 }
 
 .references-editor {
@@ -459,7 +430,7 @@ useDeprecationWarnings(props.configuration)
 .references-navigation-list {
   position: sticky;
   top: var(--refs-header-height);
-  height: calc(var(--full-height) - var(--refs-header-height));
+  height: calc(100dvh - var(--refs-header-height));
   background: var(--scalar-sidebar-background-1 var(--scalar-background-1));
   overflow-y: auto;
   display: flex;
@@ -509,16 +480,13 @@ useDeprecationWarnings(props.configuration)
   /* Stack view on mobile */
   .references-layout {
     grid-template-columns: auto;
-    grid-template-rows: var(--refs-header-height) 0px auto auto;
+    grid-template-rows: var(--scalar-header-height, 0px) 0px auto auto;
 
     grid-template-areas:
       'header'
       'navigation'
       'rendered'
       'footer';
-  }
-  .references-sidebar.references-sidebar-mobile-open {
-    overflow-y: hidden;
   }
   .references-editable {
     grid-template-areas:
@@ -538,14 +506,15 @@ useDeprecationWarnings(props.configuration)
 
   .references-navigation {
     display: none;
-    position: sticky;
-    top: var(--refs-header-height);
-    height: 0px;
     z-index: 10;
   }
 
   .references-sidebar-mobile-open .references-navigation {
     display: block;
+    top: var(--refs-header-height);
+    height: calc(100dvh - var(--refs-header-height));
+    width: 100%;
+    position: sticky;
   }
 
   .references-navigation-list {

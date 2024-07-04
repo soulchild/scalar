@@ -55,21 +55,11 @@ const inDevelopment = import.meta.env.DEV
         </template>
       </PageLink>
     </div>
-    <h1>@scalar/api-client</h1>
-    <div class="page-links">
-      <PageLink to="api-client">
-        <template #title>API Client</template>
-        <template #description>
-          Just the API client, and nothing else. Play with any API in your
-          browser.
-        </template>
-      </PageLink>
-    </div>
     <h1>Examples</h1>
     <div class="page-links">
       <PageLink href="http://localhost:5065">
         <template #title>Client V2</template>
-        <template #description>@scalar/client-app</template>
+        <template #description>@scalar/api-client</template>
       </PageLink>
       <PageLink href="http://localhost:5062/json">
         <template #title>Nuxt</template>

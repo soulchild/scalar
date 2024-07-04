@@ -1,5 +1,88 @@
 # @scalar/components
 
+## 0.12.9
+
+### Patch Changes
+
+- d58841b: feat: add props to scalar tooltip
+
+## 0.12.8
+
+### Patch Changes
+
+- a5aedf5: feat: lint workspace sidenav icons
+- a5aedf5: feat: add server icon
+- cd5d1a4: fix: made adding of scalar classes to headless more robust
+
+## 0.12.7
+
+### Patch Changes
+
+- 14e71cd: fix: api client top position on mobile
+  - @scalar/code-highlight@0.0.5
+
+## 0.12.6
+
+### Patch Changes
+
+- c533665: fix: move css imports to style tags
+  - @scalar/code-highlight@0.0.5
+
+## 0.12.5
+
+### Patch Changes
+
+- 4861362: chore: merge modal package into client-app
+
+## 0.12.4
+
+### Patch Changes
+
+- 94e68ab: chore: upgrade typescript to 5.5
+- Updated dependencies [a298195]
+- Updated dependencies [326bd3d]
+- Updated dependencies [94e68ab]
+  - @scalar/oas-utils@0.2.5
+  - @scalar/code-highlight@0.0.5
+
+## 0.12.3
+
+### Patch Changes
+
+- 132acd4: fix: file upload and binary file ui
+- b981770: chore: introduce the new @scalar/api-reference-editor
+- fd18932: fix: scalar button loading state
+- 06471ed: feat: add scalar listbox id prop
+  - @scalar/code-highlight@0.0.4
+
+## 0.12.2
+
+### Patch Changes
+
+- 65f7bf5: fix: scalar icon info update
+  - @scalar/code-highlight@0.0.4
+
+## 0.12.1
+
+### Patch Changes
+
+- c20c7d0: style: minor improvements to the dropdown and listbox comppnents
+- Updated dependencies [c20c7d0]
+  - @scalar/oas-utils@0.2.4
+
+## 0.12.0
+
+### Minor Changes
+
+- e4419ce: feat: add scalar tooltip component
+
+### Patch Changes
+
+- f2c1019: fix: center scalar modal component
+- fd0c93d: fix: shalow ref over ref in scalar icon
+- 7b87b8c: fix: components tailwind specificity
+- 512c815: feat: scalar listbox component full width
+
 ## 0.11.6
 
 ### Patch Changes

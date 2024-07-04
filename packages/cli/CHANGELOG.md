@@ -1,5 +1,170 @@
 # @scalar/cli
 
+## 0.2.136
+
+### Patch Changes
+
+- Updated dependencies [d58841b]
+- Updated dependencies [796717d]
+- Updated dependencies [7662097]
+- Updated dependencies [f8982ed]
+  - @scalar/oas-utils@0.2.10
+  - @scalar/void-server@2.0.5
+  - @scalar/api-reference@1.24.31
+  - @scalar/mock-server@0.2.10
+
+## 0.2.135
+
+### Patch Changes
+
+- Updated dependencies [b4d6d4a]
+- Updated dependencies [122b1ea]
+- Updated dependencies [122b1ea]
+  - @scalar/api-reference@1.24.30
+  - @scalar/void-server@2.0.4
+
+## 0.2.134
+
+### Patch Changes
+
+- Updated dependencies [1a5b8af]
+- Updated dependencies [d6a2a4d]
+- Updated dependencies [ebf1ee9]
+- Updated dependencies [632d6f7]
+- Updated dependencies [0bc904e]
+- Updated dependencies [613def2]
+  - @scalar/void-server@2.0.3
+  - @scalar/oas-utils@0.2.9
+  - @scalar/api-reference@1.24.29
+  - @scalar/mock-server@0.2.9
+
+## 0.2.133
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.28
+
+## 0.2.132
+
+### Patch Changes
+
+- Updated dependencies [a01df62]
+  - @scalar/oas-utils@0.2.8
+  - @scalar/api-reference@1.24.27
+  - @scalar/mock-server@0.2.8
+
+## 0.2.131
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.26
+
+## 0.2.130
+
+### Patch Changes
+
+- Updated dependencies [429e928]
+  - @scalar/api-reference@1.24.25
+
+## 0.2.129
+
+### Patch Changes
+
+- Updated dependencies [bbbabe6]
+  - @scalar/api-reference@1.24.24
+  - @scalar/mock-server@0.2.7
+  - @scalar/oas-utils@0.2.7
+  - @scalar/void-server@2.0.2
+
+## 0.2.128
+
+### Patch Changes
+
+- Updated dependencies [b87617c]
+- Updated dependencies [975e555]
+- Updated dependencies [646dab2]
+- Updated dependencies [7f4d22e]
+- Updated dependencies [a32f137]
+  - @scalar/api-reference@1.24.23
+  - @scalar/oas-utils@0.2.7
+  - @scalar/mock-server@0.2.7
+
+## 0.2.127
+
+### Patch Changes
+
+- @scalar/api-reference@1.24.22
+
+## 0.2.126
+
+### Patch Changes
+
+- Updated dependencies [cefe804]
+- Updated dependencies [4861362]
+- Updated dependencies [cefe804]
+- Updated dependencies [fec6f8e]
+- Updated dependencies [cefe804]
+- Updated dependencies [4126c40]
+- Updated dependencies [d0aec62]
+  - @scalar/api-reference@1.24.21
+  - @scalar/oas-utils@0.2.6
+  - @scalar/mock-server@0.2.6
+
+## 0.2.125
+
+### Patch Changes
+
+- 94e68ab: chore: upgrade typescript to 5.5
+- Updated dependencies [a298195]
+- Updated dependencies [326bd3d]
+- Updated dependencies [94e68ab]
+  - @scalar/oas-utils@0.2.5
+  - @scalar/mock-server@0.2.5
+  - @scalar/void-server@2.0.2
+  - @scalar/api-reference@1.24.20
+
+## 0.2.124
+
+### Patch Changes
+
+- Updated dependencies [b981770]
+- Updated dependencies [89afbcf]
+- Updated dependencies [06471ed]
+- Updated dependencies [06471ed]
+  - @scalar/api-reference@1.24.19
+  - @scalar/mock-server@0.2.4
+
+## 0.2.123
+
+### Patch Changes
+
+- 23c5739: feat: add a subdomain to the configuration file
+- 23c5739: feat: add --force flag to overwrite existing files
+  - @scalar/api-reference@1.24.18
+
+## 0.2.122
+
+### Patch Changes
+
+- Updated dependencies [4999486]
+- Updated dependencies [c20c7d0]
+  - @scalar/void-server@2.0.1
+  - @scalar/oas-utils@0.2.4
+  - @scalar/api-reference@1.24.17
+  - @scalar/mock-server@0.2.4
+
+## 0.2.121
+
+### Patch Changes
+
+- 9a03d0e: feat: add void command
+- Updated dependencies [716811f]
+- Updated dependencies [1af9124]
+- Updated dependencies [5812c2f]
+- Updated dependencies [ee5fdee]
+  - @scalar/api-reference@1.24.16
+  - @scalar/void-server@2.0.0
+
 ## 0.2.120
 
 ### Patch Changes

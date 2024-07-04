@@ -1,5 +1,187 @@
 # @scalar/api-client
 
+## 2.0.8
+
+### Patch Changes
+
+- ba3f5cb: feat: address bar history item infos
+- 0b6e3aa: fix: address bar history item infos
+- d58841b: feat: request table tooltip component
+- Updated dependencies [d58841b]
+- Updated dependencies [d58841b]
+  - @scalar/oas-utils@0.2.10
+  - @scalar/components@0.12.9
+
+## 2.0.7
+
+### Patch Changes
+
+- f2e3b0e: fix(#2351): global css import bug
+- Updated dependencies [4250fe2]
+  - @scalar/themes@0.9.11
+  - @scalar/components@0.12.8
+
+## 2.0.6
+
+### Patch Changes
+
+- 4385ae2: fix: add missing dependencies
+- 632d6f7: fix: add cookie handler and schema
+- a5aedf5: feat: lint workspace sidenav icons
+- a5aedf5: feat: add server icon
+- d6a2a4d: feat: api client data table input enum select component
+- cd5d1a4: fix: made adding of scalar classes to headless more robust
+- Updated dependencies [d6a2a4d]
+- Updated dependencies [04ca40b]
+- Updated dependencies [632d6f7]
+- Updated dependencies [a5aedf5]
+- Updated dependencies [a5aedf5]
+- Updated dependencies [cd5d1a4]
+  - @scalar/oas-utils@0.2.9
+  - @scalar/object-utils@1.1.3
+  - @scalar/components@0.12.8
+
+## 2.0.5
+
+### Patch Changes
+
+- 6709507: fix: api client missing scalar ui root style
+- 8f06fcd: fix: api client required after content out of tailwind
+- 8f06fcd: fix: prevent api client path param key update
+- cdfb8c5: feat: focus visible outline style
+  - @scalar/components@0.12.7
+
+## 2.0.4
+
+### Patch Changes
+
+- Updated dependencies [a01df62]
+  - @scalar/oas-utils@0.2.8
+
+## 2.0.3
+
+### Patch Changes
+
+- 9f208d5: fix: only send query params with a value
+
+## 2.0.2
+
+### Patch Changes
+
+- 209a7e1: fix: default proxy for client app and revert to scalar galaxy
+- 429e928: feat: watch spec and update
+- 3ba80b9: fix: move to pure css solution for client modal no more headless ui
+
+## 2.0.1
+
+### Patch Changes
+
+- ec52346: fix: request no longer being sent multiple times
+- ded1303: fix: only send enabled parameters
+- 6aae9fe: fix: select the correct auth when opening the client
+- Updated dependencies [14e71cd]
+  - @scalar/components@0.12.7
+  - @scalar/oas-utils@0.2.7
+  - @scalar/object-utils@1.1.2
+  - @scalar/use-toasts@0.7.4
+  - @scalar/use-tooltip@1.0.2
+
+## 2.0.0
+
+### Major Changes
+
+- bd67d8f: feat: switch to the brand new client app
+
+### Patch Changes
+
+- Updated dependencies [7f4d22e]
+  - @scalar/oas-utils@0.2.7
+
+## 1.3.21
+
+### Patch Changes
+
+- Updated dependencies [c533665]
+- Updated dependencies [3b83b82]
+  - @scalar/components@0.12.6
+  - @scalar/themes@0.9.9
+
+## 1.3.20
+
+### Patch Changes
+
+- cefe804: refactor: server feature
+- Updated dependencies [e1af8ed]
+- Updated dependencies [4861362]
+- Updated dependencies [cefe804]
+- Updated dependencies [fec6f8e]
+- Updated dependencies [d0aec62]
+  - @scalar/use-tooltip@1.0.2
+  - @scalar/components@0.12.5
+  - @scalar/oas-utils@0.2.6
+
+## 1.3.19
+
+### Patch Changes
+
+- 326bd3d: fix: URL is not encoded when sent to the proxy
+- 94e68ab: chore: upgrade typescript to 5.5
+- Updated dependencies [a298195]
+- Updated dependencies [326bd3d]
+- Updated dependencies [94e68ab]
+  - @scalar/oas-utils@0.2.5
+  - @scalar/components@0.12.4
+  - @scalar/themes@0.9.8
+  - @scalar/use-codemirror@0.11.4
+  - @scalar/use-toasts@0.7.4
+  - @scalar/use-tooltip@1.0.1
+
+## 1.3.18
+
+### Patch Changes
+
+- 06471ed: fix: display enum select in api reference
+- Updated dependencies [132acd4]
+- Updated dependencies [3b53db5]
+- Updated dependencies [b981770]
+- Updated dependencies [fd18932]
+- Updated dependencies [06471ed]
+  - @scalar/components@0.12.3
+  - @scalar/themes@0.9.7
+  - @scalar/use-codemirror@0.11.3
+  - @scalar/use-toasts@0.7.3
+
+## 1.3.17
+
+### Patch Changes
+
+- Updated dependencies [e88a2c2]
+- Updated dependencies [65f7bf5]
+  - @scalar/themes@0.9.6
+  - @scalar/components@0.12.2
+
+## 1.3.16
+
+### Patch Changes
+
+- Updated dependencies [c20c7d0]
+- Updated dependencies [c20c7d0]
+  - @scalar/components@0.12.1
+  - @scalar/oas-utils@0.2.4
+
+## 1.3.15
+
+### Patch Changes
+
+- Updated dependencies [e4419ce]
+- Updated dependencies [e5ac3e1]
+- Updated dependencies [f2c1019]
+- Updated dependencies [fd0c93d]
+- Updated dependencies [7b87b8c]
+- Updated dependencies [512c815]
+  - @scalar/components@0.12.0
+  - @scalar/use-tooltip@1.0.0
+
 ## 1.3.14
 
 ### Patch Changes

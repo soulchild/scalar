@@ -1,5 +1,225 @@
 # @scalar/api-reference
 
+## 1.24.31
+
+### Patch Changes
+
+- 7662097: fix: create payload for non-Nuxt SSG
+- f8982ed: feat: show custom examples along the generated examples
+- Updated dependencies [ba3f5cb]
+- Updated dependencies [d58841b]
+- Updated dependencies [0b6e3aa]
+- Updated dependencies [d58841b]
+- Updated dependencies [d58841b]
+  - @scalar/api-client@2.0.8
+  - @scalar/oas-utils@0.2.10
+  - @scalar/components@0.12.9
+
+## 1.24.30
+
+### Patch Changes
+
+- b4d6d4a: fix: accessing window durring SSG when generating links
+- Updated dependencies [f2e3b0e]
+- Updated dependencies [4250fe2]
+  - @scalar/api-client@2.0.7
+  - @scalar/themes@0.9.11
+  - @scalar/components@0.12.8
+
+## 1.24.29
+
+### Patch Changes
+
+- ebf1ee9: fix: removed api-reference forced reliance on Style tag injection to fix nuxt/SSR
+- 613def2: fix(#2352): move css imports into style tag
+- Updated dependencies [d6a2a4d]
+- Updated dependencies [4385ae2]
+- Updated dependencies [632d6f7]
+- Updated dependencies [a5aedf5]
+- Updated dependencies [a5aedf5]
+- Updated dependencies [d6a2a4d]
+- Updated dependencies [cd5d1a4]
+  - @scalar/oas-utils@0.2.9
+  - @scalar/api-client@2.0.6
+  - @scalar/components@0.12.8
+
+## 1.24.28
+
+### Patch Changes
+
+- Updated dependencies [6709507]
+- Updated dependencies [8f06fcd]
+- Updated dependencies [8f06fcd]
+- Updated dependencies [cdfb8c5]
+  - @scalar/api-client@2.0.5
+  - @scalar/themes@0.9.10
+  - @scalar/components@0.12.7
+
+## 1.24.27
+
+### Patch Changes
+
+- Updated dependencies [a01df62]
+  - @scalar/oas-utils@0.2.8
+  - @scalar/api-client@2.0.4
+
+## 1.24.26
+
+### Patch Changes
+
+- Updated dependencies [9f208d5]
+  - @scalar/api-client@2.0.3
+
+## 1.24.25
+
+### Patch Changes
+
+- 429e928: feat: watch spec and update
+- Updated dependencies [209a7e1]
+- Updated dependencies [429e928]
+- Updated dependencies [3ba80b9]
+  - @scalar/api-client@2.0.2
+
+## 1.24.24
+
+### Patch Changes
+
+- bbbabe6: fix: server description padding
+- Updated dependencies [ec52346]
+- Updated dependencies [ded1303]
+- Updated dependencies [6aae9fe]
+- Updated dependencies [14e71cd]
+  - @scalar/api-client@2.0.1
+  - @scalar/components@0.12.7
+  - @scalar/oas-utils@0.2.7
+  - @scalar/themes@0.9.9
+  - @scalar/use-toasts@0.7.4
+  - @scalar/use-tooltip@1.0.2
+
+## 1.24.23
+
+### Patch Changes
+
+- b87617c: fix: configured servers list is ignored
+- 975e555: fix: api reference sidebar method font weight
+- 646dab2: chore: don’t expose useApiClientStore anymore
+- 7f4d22e: refactor: new redirectToProxy helper
+- a32f137: refactor: add HttpMethod component
+- Updated dependencies [bd67d8f]
+- Updated dependencies [7f4d22e]
+  - @scalar/api-client@2.0.0
+  - @scalar/oas-utils@0.2.7
+
+## 1.24.22
+
+### Patch Changes
+
+- Updated dependencies [c533665]
+- Updated dependencies [3b83b82]
+  - @scalar/components@0.12.6
+  - @scalar/client-app@0.1.16
+  - @scalar/themes@0.9.9
+  - @scalar/api-client@1.3.21
+
+## 1.24.21
+
+### Patch Changes
+
+- cefe804: refactor: server feature
+- 4861362: chore: merge modal package into client-app
+- cefe804: style: use @scalar/components dropdown for the base url
+- 4126c40: style: no dropdown for a single server
+- Updated dependencies [e1af8ed]
+- Updated dependencies [fec6f8e]
+- Updated dependencies [cefe804]
+- Updated dependencies [4861362]
+- Updated dependencies [cefe804]
+- Updated dependencies [fec6f8e]
+- Updated dependencies [de13666]
+- Updated dependencies [d0aec62]
+- Updated dependencies [2c0bd57]
+  - @scalar/use-tooltip@1.0.2
+  - @scalar/client-app@0.1.15
+  - @scalar/api-client@1.3.20
+  - @scalar/components@0.12.5
+  - @scalar/oas-utils@0.2.6
+
+## 1.24.20
+
+### Patch Changes
+
+- 94e68ab: chore: upgrade typescript to 5.5
+- Updated dependencies [a298195]
+- Updated dependencies [326bd3d]
+- Updated dependencies [94e68ab]
+  - @scalar/oas-utils@0.2.5
+  - @scalar/api-client@1.3.19
+  - @scalar/components@0.12.4
+  - @scalar/api-client-modal@0.0.16
+  - @scalar/themes@0.9.8
+  - @scalar/use-toasts@0.7.4
+  - @scalar/use-tooltip@1.0.1
+
+## 1.24.19
+
+### Patch Changes
+
+- b981770: chore: introduce the new @scalar/api-reference-editor
+- 89afbcf: fix: extract server variable inputs into components
+- 06471ed: fix: display enum select in api reference
+- 06471ed: fix: api reference server variables style
+- Updated dependencies [132acd4]
+- Updated dependencies [3b53db5]
+- Updated dependencies [b981770]
+- Updated dependencies [06471ed]
+- Updated dependencies [fd18932]
+- Updated dependencies [06471ed]
+  - @scalar/components@0.12.3
+  - @scalar/themes@0.9.7
+  - @scalar/use-toasts@0.7.3
+  - @scalar/api-client@1.3.18
+  - @scalar/api-client-modal@0.0.15
+
+## 1.24.18
+
+### Patch Changes
+
+- Updated dependencies [e88a2c2]
+- Updated dependencies [65f7bf5]
+  - @scalar/themes@0.9.6
+  - @scalar/components@0.12.2
+  - @scalar/api-client@1.3.17
+  - @scalar/api-client-modal@0.0.14
+
+## 1.24.17
+
+### Patch Changes
+
+- Updated dependencies [c20c7d0]
+- Updated dependencies [c20c7d0]
+  - @scalar/components@0.12.1
+  - @scalar/oas-utils@0.2.4
+  - @scalar/api-client@1.3.16
+  - @scalar/api-client-modal@0.0.13
+
+## 1.24.16
+
+### Patch Changes
+
+- 716811f: fix: HTML API does not work with YAML content inside script tag
+- 5812c2f: feat: allow custom headers
+- ee5fdee: fix: api reference allof items merge objects
+- Updated dependencies [e4419ce]
+- Updated dependencies [e5ac3e1]
+- Updated dependencies [f2c1019]
+- Updated dependencies [fd0c93d]
+- Updated dependencies [7b87b8c]
+- Updated dependencies [512c815]
+  - @scalar/components@0.12.0
+  - @scalar/use-tooltip@1.0.0
+  - @scalar/api-client@1.3.15
+  - @scalar/api-client-modal@0.0.12
+
 ## 1.24.15
 
 ### Patch Changes

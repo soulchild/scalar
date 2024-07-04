@@ -1,5 +1,60 @@
 # @scalar/mock-server
 
+## 0.2.10
+
+### Patch Changes
+
+- Updated dependencies [d58841b]
+  - @scalar/oas-utils@0.2.10
+
+## 0.2.9
+
+### Patch Changes
+
+- Updated dependencies [d6a2a4d]
+- Updated dependencies [632d6f7]
+  - @scalar/oas-utils@0.2.9
+
+## 0.2.8
+
+### Patch Changes
+
+- Updated dependencies [a01df62]
+  - @scalar/oas-utils@0.2.8
+
+## 0.2.7
+
+### Patch Changes
+
+- Updated dependencies [7f4d22e]
+  - @scalar/oas-utils@0.2.7
+
+## 0.2.6
+
+### Patch Changes
+
+- Updated dependencies [cefe804]
+- Updated dependencies [fec6f8e]
+- Updated dependencies [d0aec62]
+  - @scalar/oas-utils@0.2.6
+
+## 0.2.5
+
+### Patch Changes
+
+- 94e68ab: chore: upgrade typescript to 5.5
+- Updated dependencies [a298195]
+- Updated dependencies [326bd3d]
+- Updated dependencies [94e68ab]
+  - @scalar/oas-utils@0.2.5
+
+## 0.2.4
+
+### Patch Changes
+
+- Updated dependencies [c20c7d0]
+  - @scalar/oas-utils@0.2.4
+
 ## 0.2.3
 
 ### Patch Changes

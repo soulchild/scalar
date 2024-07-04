@@ -2,9 +2,10 @@
  * This file is the entry point for the CDN version of the Scalar Test Button.
  * It’s responsible for finding the spec and configuration in the HTML, and mounting the Vue.js app.
  */
-import { ApiClientModal, openClientFor, parse } from '@scalar/api-reference'
-import type { Spec } from '@scalar/oas-utils'
-import { createApp, h, reactive } from 'vue'
+import { createScalarApiClient } from '@scalar/api-client'
+import { parse } from '@scalar/api-reference'
+import type { Spec, Tag, TransformedOperation } from '@scalar/oas-utils'
+import { reactive } from 'vue'
 
 const specScriptTag = document.getElementById('scalar-play-button-script')
 const testButtons = document.getElementsByClassName('scalar-play-button')
@@ -31,6 +32,14 @@ const getSpecUrl = () => {
     if (urlFromSpecUrlElement) {
       return urlFromSpecUrlElement
     }
+  }
+
+  // <script id="scalar-play-button-script" type="application/json">{ "openapi": "3.1.0", … }</script>
+  // <script id="scalar-play-button-script" type="application/yaml">…</script>
+  const specFromScriptTag = specScriptTag?.innerHTML?.trim()
+
+  if (specFromScriptTag) {
+    return specFromScriptTag
   }
 
   return undefined
@@ -63,54 +72,58 @@ if (!specUrlElement && !specElement && !specScriptTag) {
   const createAppFactory = async () => {
     const specUrl = getSpecUrl()
 
-    if (!specUrl) return null
+    const parsedSpec: Spec = reactive(await parse(specUrl))
 
-    const resp = await fetch(specUrl)
-    const spec = await resp.json()
-
-    const parsedSpec: Spec = reactive(await parse(spec))
-
-    // const _app = createApp(
-    //   h(ScalarButtonStyles, null, {
-    //     default: () =>
-    //       h(ApiClientModal, {
-    //         parsedSpec,
-    //         theme: 'default',
-    //       }),
-    //   }),
-    // )
-
-    const _app = createApp(
-      h(ApiClientModal, {
-        parsedSpec,
-        theme: 'default',
-      }),
-    )
-
-    if (container) {
-      _app.mount(container)
-
-      for (const testButton of testButtons) {
-        const operationId = testButton.getAttribute('scalar-operation-id')
-        const specifiedOperation = parsedSpec.tags?.[0]?.operations?.find(
-          (op) => op.operationId === operationId,
-        )
-
-        testButton?.addEventListener('click', () => {
-          if (specifiedOperation) {
-            openClientFor(specifiedOperation)
-          } else {
-            const firstOperation = parsedSpec.tags?.[0]?.operations?.[0]
-            if (firstOperation) {
-              openClientFor(firstOperation)
-            }
-          }
-        })
-      }
-    } else {
+    if (!container) {
       console.error('Could not find a mount point for API References')
+      return null
     }
-    return _app
+
+    const { open } = await createScalarApiClient(container as HTMLElement, {
+      spec: {
+        url: 'https://cdn.jsdelivr.net/npm/@scalar/galaxy/dist/latest.json',
+      },
+      proxyUrl: 'https://proxy.scalar.com',
+    })
+
+    for (const testButton of testButtons) {
+      testButton?.addEventListener('click', () => {
+        // Operation ID from data attribute
+        const operationId = testButton.getAttribute('scalar-operation-id')
+
+        // Loop through all tags and operations to find the specified operation
+        const specifiedOperation = parsedSpec.tags?.reduce(
+          (acc: TransformedOperation | undefined, tag: Tag) => {
+            if (acc) {
+              return acc
+            }
+
+            return tag.operations?.find(
+              (operation) => operation.operationId === operationId,
+            )
+          },
+          undefined,
+        ) as unknown as TransformedOperation
+
+        if (specifiedOperation) {
+          open({
+            path: specifiedOperation.path,
+            method: specifiedOperation.httpVerb,
+          })
+        } else {
+          const firstOperation = parsedSpec.tags?.[0]?.operations?.[0]
+
+          if (firstOperation) {
+            open({
+              path: firstOperation.path,
+              method: firstOperation.httpVerb,
+            })
+          }
+        }
+      })
+    }
+
+    return null
   }
 
   createAppFactory()
